@@ -48,15 +48,15 @@ def displayD(n):
     GPIO.output(D4, True)
 
 
-
-
+i = 0
 try:
   while True:
-    i = 0
     print("i=", i)
     n = i % 4
     print("n=", n)
-
+    displayD(n)
+    i = i+1
+    time.sleep(2)
 
 
 finally:
