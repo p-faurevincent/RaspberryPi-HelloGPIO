@@ -9,7 +9,7 @@ GPIO.setwarnings(False) #On désactive les messages d'alerte
 
 LED = 13 #Définit le numéro du port GPIO qui alimente la led
 
-GPIO.setup(LED, GPIO.OUT) #Active le contrôle du GPIO
+GPIO.setup(LED, GPIO.OUT) #Active le contrôle du GPIO:wq!:wq!
 
 state = GPIO.input(LED) #Lit l'état actuel du GPIO, vrai si allumé, faux si éteint
 
