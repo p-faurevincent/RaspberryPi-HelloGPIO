@@ -49,6 +49,8 @@ def displayD(n):
 
 
 i = 0
+
+
 try:
   while True:
     print("i=", i)
@@ -56,7 +58,7 @@ try:
     print("n=", n)
     displayD(n)
     i = i+1
-    time.sleep(2)
+    time.sleep(0.005)
 
 
 finally:
