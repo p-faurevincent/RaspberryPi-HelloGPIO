@@ -15,8 +15,8 @@ C = 13
 D = 15
 E = 31
 F = 33
-G = 35
-DOT = 37
+G = 16
+DOT = 18
 
 D1 = 32
 D2 = 36
@@ -48,6 +48,7 @@ def displayNumber(n):
   EState = True
   FState = True
   GState = True
+  DOTState = False 
 
   if n in [1, 4]:
     AState = False
@@ -71,32 +72,33 @@ def displayNumber(n):
   GPIO.output(E, EState)
   GPIO.output(F, FState)
   GPIO.output(G, GState)
+  GPIO.output(DOT, DOTState)
 
 
 def displayDigit(d):
   if d == 0:
-    print("D1")
+    #print("D1")
     GPIO.output(D2, True)
     GPIO.output(D3, True)
     GPIO.output(D4, True)
     GPIO.output(D1, False)
 
   if d == 1:
-    print("D2")
+    #print("D2")
     GPIO.output(D1, True)
     GPIO.output(D3, True)
     GPIO.output(D4, True)
     GPIO.output(D2, False)
 
   if d == 2:
-    print("D3")
+    #print("D3")
     GPIO.output(D1, True)
     GPIO.output(D2, True)
     GPIO.output(D4, True)
     GPIO.output(D3, False)
 
   if d == 3:
-    print("D4")
+    #print("D4")
     GPIO.output(D1, True)
     GPIO.output(D2, True)
     GPIO.output(D3, True)
@@ -107,17 +109,20 @@ def displayDigitNumber(d,n):
   displayNumber(n)
 
 
-displayDigitNumber(0,4)
 
-#i = 0
-#try:
-#  while True:
+d = 0
+try:
+  while True:
+    
+
+
+
 #    print("i=", i)
-#    n = i % 4
+    d = d % 4
 #    print("n=", n)
-#    displayD(n)
-#    i = i+1
-#    time.sleep(0.005)
+    displayDigitNumber(d,d)
+    d = d + 1
+    time.sleep(0.005)
 
 
 finally:
