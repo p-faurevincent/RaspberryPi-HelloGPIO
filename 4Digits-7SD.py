@@ -53,9 +53,9 @@ def displayD(n):
 try:
   while True:
     i = 0
-    print("i=" + i)
+    print("i=", i)
     n = i % 4
-    print("n=" +n)
+    print("n=", n)
 
 
 
