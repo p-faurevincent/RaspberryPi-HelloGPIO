@@ -24,6 +24,10 @@ D3 = 38
 D4 = 40
 
 
+PLUS = 12 
+MINUS = 22 
+
+
 GPIO.setup(A, GPIO.OUT)
 GPIO.setup(B, GPIO.OUT)
 GPIO.setup(C, GPIO.OUT)
@@ -38,6 +42,8 @@ GPIO.setup(D2, GPIO.OUT)
 GPIO.setup(D3, GPIO.OUT)
 GPIO.setup(D4, GPIO.OUT)
 
+GPIO.setup(PLUS, GPIO.IN)
+GPIO.setup(MINUS, GPIO.IN)
 
 
 def displayNumber(n):
@@ -108,31 +114,43 @@ def displayDigitNumber(d,n):
   displayDigit(d)
   displayNumber(n)
 
+def display(number):
+  n0 = 0
+  n1 = 0
+  n2 = 0
+  n3 = 0
 
+  n0 = (number // 1000) % 10
+  n1 = (number // 100) % 10
+  n2 = (number // 10) % 10
+  n3 = number % 10
+ 
+#  print(n0, n1, n2, n3)
+ 
+  displayDigitNumber(0,n0)
+  time.sleep(0.005)
+  displayDigitNumber(1,n1)
+  time.sleep(0.005)
+  displayDigitNumber(2,n2)
+  time.sleep(0.005)
+  displayDigitNumber(3,n3)
+  time.sleep(0.005)
 
 number = 0
-n0 = 0
-n1 = 0
-n2 = 0
-n3 = 0
-
 try:
   while True:
+#    print("number ", number)
+    display(number)
 
-    n0 = number / 1000 % 10
-    n1 = number / 100 % 10
-    n2 = number / 10 % 10
-    n3 = number% 10
+    if GPIO.input(PLUS)==1:
+      number = number +1
 
-    print ("number ", number, " n0 ", n0, " n1 ", n1, " n2 ", n2, " n3 ", n3)
+    if GPIO.input(MINUS)==1:
+      number = number -1
 
 
-#    print("i=", i)
-    d = d % 4
-#    print("n=", n)
-    # displayDigitNumber(d,d)
-    number = number + 1
     time.sleep(0.005)
+
 
 
 finally:
