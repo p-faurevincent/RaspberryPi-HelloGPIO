@@ -110,18 +110,28 @@ def displayDigitNumber(d,n):
 
 
 
-d = 0
+number = 0
+n0 = 0
+n1 = 0
+n2 = 0
+n3 = 0
+
 try:
   while True:
-    
 
+    n0 = number / 1000 % 10
+    n1 = number / 100 % 10
+    n2 = number / 10 % 10
+    n3 = number% 10
+
+    print ("number ", number, " n0 ", n0, " n1 ", n1, " n2 ", n2, " n3 ", n3)
 
 
 #    print("i=", i)
     d = d % 4
 #    print("n=", n)
-    displayDigitNumber(d,d)
-    d = d + 1
+    # displayDigitNumber(d,d)
+    number = number + 1
     time.sleep(0.005)
 
 
